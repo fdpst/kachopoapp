@@ -35,13 +35,15 @@ class Tab3Page extends StatelessWidget {
             children: [
               
               Container(
+
+                
                 
                 color: Colors.black,
-                //padding: const EdgeInsets.only(top: 0),
+                padding: const EdgeInsets.only(top: 15),
                 //height: 80,
                 
                 width: Responsive.width(100, context),
-                height: Responsive.width(19, context),
+                height: Responsive.width(21, context),
                 
                 //color: Colors.red,
                 child: Text(
@@ -89,7 +91,7 @@ class ImagenPpal extends StatelessWidget {
               colorBlendMode: BlendMode.modulate, 
               //height: MediaQuery.of(context).size.height - 176,
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.80,
+              height: MediaQuery.of(context).size.height * 0.90,
               //height: MediaQuery.of(context).size.height,
               fit: BoxFit.cover,
               //filterQuality: FilterQuality.low,
@@ -109,7 +111,7 @@ class ImagenPpal extends StatelessWidget {
                     //padding: EdgeInsets.only(top: 10),
                     padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25,),
                     child: Text(
-                      'Dudas, recomendaciones, problemas... Sea lo que sea, \n ¡Estamos siempre para servirte!',
+                      'Dudas, recomendaciones, problemas...\nSea lo que sea,\n¡Estamos siempre para servirte!',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.oswald(textStyle: 
                       const TextStyle(color: Colors.white,
@@ -118,7 +120,7 @@ class ImagenPpal extends StatelessWidget {
                           
                       ),
                     ),
-
+      
                     /*const Padding(
                       
                 padding: EdgeInsets.symmetric(horizontal: 60), 
@@ -128,21 +130,21 @@ class ImagenPpal extends StatelessWidget {
               height: 20,
               ),
                 )*/
-
-
+      
+      
                 ],
               ),
               
               ),
-
+      
               //SizedBox(height: 10),
-
+      
           ImageIcon(const AssetImage('assets/images/whatsapp.png'), ('¡Escribenos un WhastApp!'), context, ('whts')),
-
+      
           //ImageIcon(const AssetImage('assets/images/llamada.png'), ('¿Te urge la respuesta? ¡Llámanos!'), context, ('call')),
-
+      
           ImageIcon(const AssetImage('assets/images/mail.png'), ('Mándanos un email'), context, ('mail')),   
-
+      
          
             ]
           ),
@@ -180,7 +182,7 @@ class ImagenPpal extends StatelessWidget {
                     },
                   
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 50),
+                    padding: const EdgeInsets.only(top: 15),
                     child: Image(
                   image: assetImage,
                   width: 130,
@@ -190,7 +192,7 @@ class ImagenPpal extends StatelessWidget {
              )),
 
              Padding(
-                padding: const EdgeInsets.only(top: 10, bottom: 60),
+                padding: const EdgeInsets.only(top: 10, bottom: 30),
                 child: Text(
                   textIcon,
                   textAlign: TextAlign.center,

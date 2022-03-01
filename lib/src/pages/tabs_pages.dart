@@ -3,6 +3,8 @@ import 'package:kachoking/src/pages/tab3_pages.dart';
 import 'package:kachoking/src/pages/tab2_pages.dart';
 import 'package:provider/provider.dart';
 
+import 'tabs4_pages.dart';
+
 
 class TabsPage extends StatelessWidget {
 
@@ -28,14 +30,17 @@ class _Navegacion extends StatelessWidget {
     final navegacionModel = Provider.of<_NavegacionModel>(context);
 
     return BottomNavigationBar(
+      //showUnselectedLabels: true,
       backgroundColor: Colors.grey[850],
       selectedItemColor: Colors.yellow.shade300,
-      unselectedItemColor: Colors.grey,
+      unselectedItemColor: Colors.yellow.shade300,
+      //unselectedItemColor: Colors.grey,
       currentIndex: navegacionModel.paginaActual,
       //onTap: (i) => print('$i'),
       onTap: (i) => navegacionModel.paginaActual = i,
-      items: [  
-
+      items: [ 
+      
+         
            BottomNavigationBarItem(
            
            icon: 
@@ -101,15 +106,18 @@ class _Paginas extends StatelessWidget {
       children: <Widget> [
 
         Container(
-          color: Colors.black,
+          color: Colors.white,
         ),
 
         Tab2Page(), //WEBVIEW
         
         Tab3Page(), //CONTACTO
 
+        Tab4Page(),
+        /*Container(
+          color: Colors.green,
+        )*/
         
-
         
       ],
     );
@@ -120,20 +128,20 @@ class _NavegacionModel with ChangeNotifier {
 
   int _paginaActual = 0;
   
-  PageController _pageController = new PageController(initialPage: 0);
+  final PageController _pageController = PageController(initialPage: 4);
 
-  int get paginaActual => this._paginaActual;
+  int get paginaActual => _paginaActual;
 
   set paginaActual (int valor) {
 
-    this._paginaActual = valor;
+    _paginaActual = valor;
 
-    _pageController.animateToPage(valor, duration: Duration(milliseconds: 10), curve: Curves.bounceInOut);
+    _pageController.animateToPage(valor, duration: Duration(milliseconds: 5), curve: Curves.bounceInOut);
     
     notifyListeners();
 
   }
 
-  PageController get pageController => this._pageController;
+  PageController get pageController => _pageController;
 
 }
