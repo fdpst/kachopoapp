@@ -11,12 +11,14 @@ class TabsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => new _NavegacionModel(),
-      child: Scaffold(
-        appBar: LocalAppbar(),
-        //backgroundColor: Colors.grey[200],
-        backgroundColor: Colors.black,
-        body: _Paginas(),
-        bottomNavigationBar: _Navegacion(),
+      child: Consumer<_NavegacionModel>(
+        builder: (context, value, child) => Scaffold(
+          appBar: value._paginaActual == 3 ? null : LocalAppbar(),
+          //backgroundColor: Colors.grey[200],
+          backgroundColor: Colors.black,
+          body: _Paginas(),
+          bottomNavigationBar: _Navegacion(),
+        ),
       ),
     );
   }
