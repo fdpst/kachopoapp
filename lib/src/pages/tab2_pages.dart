@@ -11,10 +11,8 @@ class Tab2Page extends StatefulWidget {
 }
 
 class HomepageState extends State<Tab2Page> {
-
-   bool isLoading=true;
-   final _key = UniqueKey();
-
+  bool isLoading = true;
+  final _key = UniqueKey();
 
   late WebViewController _controller;
 
@@ -26,51 +24,40 @@ class HomepageState extends State<Tab2Page> {
     super.initState();
     // Enable hybrid composition.
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
-
-    
-    
   }
 
   @override
   Widget build(BuildContext context) {
-
     //showLoader(context);
 
     return SafeArea(
-      child: Stack(
-        children: [
-          WillPopScope(
+      child: Stack(children: [
+        WillPopScope(
           onWillPop: () => _goBack(context),
           child: WebView(
             key: _key,
             backgroundColor: Colors.grey[200],
-            initialUrl: 'https://www.kachopoking.es/wp-login.php',
+            initialUrl: 'https://www.kachopoking.es/tienda',
             javascriptMode: JavascriptMode.unrestricted,
-            
-
-
+            initialCookies: [],
             onWebViewCreated: (WebViewController webViewController) {
               _controllerCompleter.future.then((value) => _controller = value);
-             // _controllerCompleter.complete(webViewController);
+              // _controllerCompleter.complete(webViewController);
             },
-
             onPageFinished: (finish) {
               setState(() {
                 isLoading = false;
               });
             },
-            ),
           ),
-          isLoading ? 
-          const Center( 
-            //child: SpinKitRotatingCircle(color: Colors.blueAccent)
-            child: CircularProgressIndicator()
-            ,)
-          : Stack(),
-          
-        
-        ]
-      ),
+        ),
+        isLoading
+            ? const Center(
+                //child: SpinKitRotatingCircle(color: Colors.blueAccent)
+                child: CircularProgressIndicator(),
+              )
+            : Stack(),
+      ]),
     );
   }
 
@@ -93,7 +80,6 @@ class HomepageState extends State<Tab2Page> {
                   TextButton(
                     onPressed: () {
                       SystemNavigator.pop();
-                      
                     },
                     child: Text('Si'),
                   ),
@@ -104,18 +90,13 @@ class HomepageState extends State<Tab2Page> {
   }
 
   Widget showLoader(BuildContext context) {
-
-    
-
     return const Scaffold(
       body: Center(
-        child: SpinKitRotatingCircle(color: Colors.red, duration: Duration(milliseconds: 50000),),
+        child: SpinKitRotatingCircle(
+          color: Colors.red,
+          duration: Duration(milliseconds: 50000),
+        ),
       ),
     );
-
-
-
-
-
   }
 }
