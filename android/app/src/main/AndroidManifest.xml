@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kachopo.kachoking">
+      <uses-permission android:name="android.permission.INTERNET"/>
 
     <queries>
   <!-- If your app opens https URLs -->
@@ -27,7 +28,7 @@
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 
    <application
-        android:label="kachoking"
+        android:label="Kachopo App"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
