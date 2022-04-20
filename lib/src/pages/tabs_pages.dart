@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kachoking/src/pages/proximamente.dart';
 import 'package:kachoking/src/pages/tab1_pages.dart';
 import 'package:kachoking/src/pages/tab3_pages.dart';
 import 'package:kachoking/src/pages/tab2_pages.dart';
@@ -100,7 +101,7 @@ class _Paginas extends StatelessWidget {
             //physics: const BouncingScrollPhysics(),
             physics: NeverScrollableScrollPhysics(),
             children: <Widget>[
-              Tab1Page(),
+              Proximamente(),
 
               Tab2Page(), //WEBVIEW
 

@@ -35,6 +35,9 @@ class HomepageState extends State<Tab2Page> {
         WillPopScope(
           onWillPop: () => _goBack(context),
           child: WebView(
+            onWebResourceError: (error) {
+              print(error.description);
+            },
             key: _key,
             backgroundColor: Colors.grey[200],
             initialUrl: 'https://www.kachopoking.es/tienda',
