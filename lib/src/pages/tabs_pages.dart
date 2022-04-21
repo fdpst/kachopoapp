@@ -66,7 +66,7 @@ class _Navegacion extends StatelessWidget {
                         //color: Colors.grey),
                       ),
                     ),
-                    label: ('PROMOCIONES')),
+                    label: ('DESCARGABLES')),
                 BottomNavigationBarItem(
                     icon: Padding(
                       padding: const EdgeInsets.all(2.0),
@@ -120,7 +120,12 @@ class _Paginas extends StatelessWidget {
 class _NavegacionModel with ChangeNotifier {
   int _paginaActual = 3;
   int _paginaFooter = 0;
-  List<String> _titles = ['Promociones', 'Haz tu Pedido', 'Contacto', 'Inicio'];
+  List<String> _titles = [
+    'Descargables',
+    'Haz tu Pedido',
+    'Contacto',
+    'Inicio'
+  ];
   final PageController _pageController = PageController(initialPage: 3);
   String get title => _titles[_paginaActual];
   int get paginaActual => _paginaActual;
