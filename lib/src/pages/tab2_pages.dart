@@ -39,13 +39,22 @@ class HomepageState extends State<Tab2Page> {
               print(error.description);
             },
             key: _key,
-            backgroundColor: Colors.grey[200],
-            initialUrl: 'https://www.kachopoking.es/tienda',
+            userAgent:
+                'Mozilla/5.0 (iPhone; CPU iPhone OS 8_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12D508',
+            //backgroundColor: Colors.grey[200],
+            //initialUrl: 'https://www.kachopoking.es/tienda',
             javascriptMode: JavascriptMode.unrestricted,
-            initialCookies: [],
             onWebViewCreated: (WebViewController webViewController) {
               _controllerCompleter.future.then((value) => _controller = value);
               // _controllerCompleter.complete(webViewController);
+              _controllerCompleter.complete(webViewController);
+              webViewController.loadUrl(
+                'https://www.kachopoking.es/tienda',
+                headers: {
+                  "sec-ch-ua":
+                      '"Microsoft Edge";v="107", "Chromium";v="107", "Not=A?Brand";v="24"'
+                },
+              );
             },
             onPageFinished: (finish) {
               setState(() {
